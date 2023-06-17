@@ -23,13 +23,23 @@ const Header: React.FC = () => {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={require('./assets/foto-jose.jpg')} />
+      <Text
+        style={[
+          styles.sectionTitle,
+          {
+            color: '#ed145b',
+            margin: 8,
+          },
+        ]}>
+        José Ramalho da silva neto
+      </Text>
     </View>
   );
 };
-function Section({ children, title }: SectionProps): JSX.Element {
+function SectionCard({ children, title }: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
-    <View style={styles.sectionContainer}>
+    <View style={[styles.cardContainer, { backgroundColor: '#262a2db5' }]}>
       <Text
         style={[
           styles.sectionTitle,
@@ -68,37 +78,24 @@ function App(): JSX.Element {
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View>
           <Header />
-          <View style={styles.sectionContainer}>
-            <Text
-              style={[
-                styles.sectionTitle,
-                {
-                  color: '#ed145b',
-                  textAlign: 'center',
-                },
-              ]}>
-              José Ramalho da silva neto
-            </Text>
-          </View>
-
-          <Section title="Desenvolvedor mobile">
+          <SectionCard title="Desenvolvedor mobile">
             Com uma sólida formação em análise e desenvolvimento de sistemas e 3 anos de experiência em desenvolvimento de aplicativos móveis.
-          </Section>
-          <Section title="Foco em grandes corporações financeiras">
+          </SectionCard>
+          <SectionCard title="Foco em grandes corporações financeiras">
             Criando aplicativos inovadores e funcionais que atendam às necessidades específicas de seus clientes.
-          </Section>
-          <Section title="Capacidade de criar aplicativos móveis robustos e escaláveis">
+          </SectionCard>
+          <SectionCard title="Capacidade de criar aplicativos móveis robustos e escaláveis">
             Com um bom conhecimento em tecnologias móveis, estou sempre procurando maneiras de usar as tecnologias mais recentes para aprimorar os projetos.
-          </Section>
-          <Section title="Excelente comunicação e trabalho em equipe">
+          </SectionCard>
+          <SectionCard title="Excelente comunicação e trabalho em equipe">
             Trabalho em estreita colaboração com minha equipe para garantir máxima qualidade. Comprometido em entregar projetos dentro do prazo.
-          </Section>
-          <Section title="Interesses pessoais">
+          </SectionCard>
+          <SectionCard title="Interesses pessoais">
             Quando não estou trabalhando, gosto de jogar videogame e adoro viajar para novos lugares.
-          </Section>
-          <Section title="Busca constante por crescimento e aprendizado">
+          </SectionCard>
+          <SectionCard title="Busca constante por crescimento e aprendizado">
             Estou sempre procurando maneiras de crescer na minha carreira como desenvolvedor, aprimorando minhas habilidades e aprendendo novas tecnologias para fazer projetos de qualidade.
-          </Section>
+          </SectionCard>
         </View>
       </ScrollView>
 
@@ -107,10 +104,19 @@ function App(): JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    marginBottom: 32,
-    paddingHorizontal: 24,
+  cardContainer: {
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    margin: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   sectionTitle: {
     fontSize: 24,
